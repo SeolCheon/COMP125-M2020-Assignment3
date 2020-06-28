@@ -1,0 +1,14 @@
+{
+  "name": "Assignment1",
+  "version": "1.0.0",
+  "description": "COMP125-M2020-A1",
+  "main": "index.js",
+  "author": "Seol Cheon",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.1",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}
