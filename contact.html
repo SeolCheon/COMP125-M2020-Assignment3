@@ -43,14 +43,17 @@
 <main>
     <div class="container">         
         <h1 class="display-4">Contact Us</h1> 
+        <div id="errorMessage" class="alert-danger" role="alert">
+                  
+        </div>
         <div id="errorMessage" class="alert alert-danger" role="alert" hidden> 
           </div>          
          <hr>
-         <form >
+         <form id ="contactForm" >
           <div class="form-group">
             <label for="firstname">First Name</label>
             <input type="text" class="form-control" id="firstName" name ="firstName" aria-describedby="firstName"
-            placeholder ="Enter your First Name" required>
+            placeholder ="Enter your First Name" required autofocus >
           </div>
 
           <div class="form-group">
@@ -76,17 +79,13 @@
             <textarea class="form-control" id="shortMessage" name ="shortMessage" rows="3" aria-describedby="shortMessage"></textarea>
           </div>
           
-          <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-envelope-square"></i>Send</button>
-          <button type="reset" class="btn btn-warning btn-lg"><i class="fas fa-comment-slash"></i> Reset</button>
+          <button id="submitButton"  type="submit" class="btn btn-primary btn-lg" onclick="location.href='index.html'"><i class="fas fa-envelope-square"></i>Send</button>
+          <button id="resetButton" type="reset" class="btn btn-warning btn-lg"><i class="fas fa-comment-slash"></i> Reset</button>
         </form>
     </div>
 </main>
 
-<footer>
-  <nav class="navbar fixed-bottom navbar-light" style="background-color: lightgray;">
-      <h4> &copy; CopyRight 2020. All Rights Reserved.</h4>
-  </nav>
-</footer>
+
 
 
 
