@@ -9,9 +9,9 @@
     function highlightActiveLink() 
     {
         let title = document.title;
-    
+        //show which page you are on
         console.log(`The title of the page is ${title}`);
-    
+        //make navigation lists where you are on active 
         title = title.toLowerCase();
     
         let navAnchors = document.querySelectorAll("li a");
@@ -50,26 +50,24 @@
        
     }
     //add texts in projects page
-    function addParagraphsToProjectsJumbotron() {
-        //step 1 hook into the spot {element} on the page
+    function addParagraphsToProjectsJumbotron() {        
         let projectsjumbotron = document.getElementById("projectJumbotron");
         
         if (projectsjumbotron) //if jumbotron exists
         {
-            //step 2 create a new element
+            //create a list
             let list1 = document.createElement("li");
             //step 3 configure the new element
             list1.textContent =
                 `
                 Building a Korean Digital Art Gallery.
                     
-                `; //textContent, innerText,innerHTML          
-           //step 4 attach the new element
+                `;
+            //attatch list
             projectsjumbotron.appendChild(list1);
 
-
+            //create div element
             let firstParagraph = document.createElement("div");            
-            //step 3 configure the new element
             firstParagraph.innerHTML =
                 `                
                     I like to draw pictures about my culture!
@@ -80,27 +78,25 @@
                     where there are a lot of beautiful picutres of korean cultures that I draw.     
                     FYI, a picture above is my work!           
                     
-                `; //textContent, innerText,innerHTML    
-            //step 4 attach the new element
+                `; 
+            //attach new div
             projectsjumbotron.appendChild(firstParagraph);
-    
+            //create hr element to put empty line
             let line = document.createElement("hr");                    
             projectsjumbotron.appendChild(line);
 
-    
+            //create a list
             let list2 = document.createElement("li");
-            //step 3 configure the new element
+            //configure element
             list2.textContent =
                 `
                 Making a language learning App.
-                    
-                `; //textContent, innerText,innerHTML          
-           //step 4 attach the new element
-            projectsjumbotron.appendChild(list2);
-
-            //back to step 2 - create a new element
+                `; 
+            //attatch the element    
+            projectsjumbotron.appendChild(list2);   
+            //create the div element        
             let secondParagraph = document.createElement("div");
-            //step 3 - configure
+            //configure the div element
             secondParagraph.innerHTML =
                 `
                 I like to learn langauge with language learning App.
@@ -108,27 +104,29 @@
                 Not only can this AI translate what people says with their language,
                 Also this AI can recognize user's voice and analyze the accent and pronunciation
                 and It will give feedback to users so they can fix their langauge speaking. 
-                I'll charge of analyzing speaking patterns.
-                
+                I'll charge of analyzing speaking patterns.               
     
-                `;            
+                `;         
+            //attatch the element   
             projectsjumbotron.appendChild(secondParagraph);
-
-            let line2 = document.createElement("hr");                    
+            //create hr element
+            let line2 = document.createElement("hr"); 
+            //attatch hr element                   
             projectsjumbotron.appendChild(line2);
-
-
-            let list3 = document.createElement("li");           
+            //create li element
+            let list3 = document.createElement("li");  
+            //configure it         
             list3.textContent =
                 `
                 Making a YouTube channel!
                     
-                `; //textContent, innerText,innerHTML          
-           //step 4 attach the new element
+                `; 
+            // attach the new element
             projectsjumbotron.appendChild(list3);
 
+            //create new element div
             let thirdParagraph = document.createElement("div");
-            //step 3 - configure
+            //configure
             thirdParagraph.innerHTML =
                 `
                 I like to share my ideas and knowledge with people.
@@ -139,7 +137,8 @@
                 So My last project that I haven't started yet eagerly is to become a Youtuber! 
                                    
     
-                `;            
+                `; 
+            //attatch element div               
             projectsjumbotron.appendChild(thirdParagraph);
  
             return true;
@@ -188,7 +187,6 @@
                     errorMessage.hidden = true;
                 }
             });
-
             //create a "hook" or "reference" to the button element with an id of "submitButton"
             let submitButton =document.getElementById("submitButton")        
             submitButton.addEventListener("click",(event) =>
@@ -196,6 +194,7 @@
                 event.preventDefault();
                 console.log("Submit Button Clicked")
             })
+            return true;
         }        
         return false;
     }
@@ -206,7 +205,7 @@
         console.log("App Started...");
 
         let title = highlightActiveLink();
-        
+        //check if sucessfully paragraphs added in about me page
         let success =addParagraphsToAboutmeJumbotron(); 
         if(success)
         {
@@ -217,6 +216,7 @@
         console.log("content not added to index.html jumbotron - does not exist"); 
         }
 
+        //check if sucessfully paragraphs added in projects page
         let success1 =addParagraphsToProjectsJumbotron(); 
         if(success1)
         {
@@ -226,7 +226,7 @@
         {
         console.log("content not added to projects.html jumbotron - does not exist"); 
         }
-
+        //check if sucessfully form validated
         let formValidated =validateForm();
         if(formValidated)
         {
