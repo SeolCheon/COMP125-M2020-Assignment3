@@ -1,12 +1,11 @@
 "use strict";
-
-
 //IIFE - Immediately Invoked Function Expressions.
 /*File name : app.js
   Author's name : Seol Cheon
   Web site name : SC Inc.
   file description: a text file containin JavaScript code that is used to execute */
 (function(){
+    //highlight the active page nav list 
     function highlightActiveLink() 
     {
         let title = document.title;
@@ -28,34 +27,29 @@
         }     
         return title;  
     }
-
+    //add texts in about me page
     function addParagraphsToAboutmeJumbotron() {
         //step 1 hook into the spot {element} on the page
         let aboutjumbotron = document.getElementById("aboutMeJumbotron");
         
         if (aboutjumbotron) //if jumbotron exists
-        {  
-       
-            // create a new element
+        {       
             let newDiv = document.createElement("div");
-            //step 3 - configure a new element
             newDiv.innerText =//textContent, innerText,innerHTML
                 `                    
-                    My mission in life
+                    My personal mission in life
                     is to learn English, French, Spanish
                     is to join Google and learn how to run a  company
                     is to make AI that can be friend with human
                     is to run my own AI business          
-                  
                 `;
-            //step 5 attath the new element
             aboutjumbotron.appendChild(newDiv);
 
             return true;
         }return false;        
        
     }
-
+    //add texts in projects page
     function addParagraphsToProjectsJumbotron() {
         //step 1 hook into the spot {element} on the page
         let projectsjumbotron = document.getElementById("projectJumbotron");
@@ -83,12 +77,16 @@
                     in my country. And I really want to promote those!
                     But It is a bit hard to travel to Korea everytime you want to see works.
                     So Finally, I want to build website for digital art gallery 
-                    where there are a lot of beautiful picutres of korean cultures that I draw.                
+                    where there are a lot of beautiful picutres of korean cultures that I draw.     
+                    FYI, a picture above is my work!           
                     
                 `; //textContent, innerText,innerHTML    
             //step 4 attach the new element
             projectsjumbotron.appendChild(firstParagraph);
     
+            let line = document.createElement("hr");                    
+            projectsjumbotron.appendChild(line);
+
     
             let list2 = document.createElement("li");
             //step 3 configure the new element
@@ -110,15 +108,20 @@
                 Not only can this AI translate what people says with their language,
                 Also this AI can recognize user's voice and analyze the accent and pronunciation
                 and It will give feedback to users so they can fix their langauge speaking. 
-                I'll charge of analyzing speaking patterns.                   
+                I'll charge of analyzing speaking patterns.
+                
     
                 `;            
             projectsjumbotron.appendChild(secondParagraph);
 
+            let line2 = document.createElement("hr");                    
+            projectsjumbotron.appendChild(line2);
+
+
             let list3 = document.createElement("li");           
             list3.textContent =
                 `
-                Making a language learning App.
+                Making a YouTube channel!
                     
                 `; //textContent, innerText,innerHTML          
            //step 4 attach the new element
@@ -128,11 +131,13 @@
             //step 3 - configure
             thirdParagraph.innerHTML =
                 `
-                I like to learn langauge with language learning App.
-                I want to make the App with AI.
-                Not only can this AI translate what people says with their language,
-                Also this AI can recognize user's voice and analyze the accent and pronunciation
-                and It will give feedback to users so they can fix their langauge speaking.                    
+                I like to share my ideas and knowledge with people.
+                I think becoming a youtuber will help me improve my English
+                and learn skills for buiding websites using language!
+                The reason why I think like this is I believe that only after I teach people 
+                with my knowledge, that knowledge is real mine now.
+                So My last project that I haven't started yet eagerly is to become a Youtuber! 
+                                   
     
                 `;            
             projectsjumbotron.appendChild(thirdParagraph);
@@ -140,17 +145,10 @@
             return true;
         }return false;        
        
-    }
- 
-
-   
+    } 
 
 
-
-    
-
-
-
+    //validations in contact page
     function validateForm()
     {        
         let contactForm = document.forms[0];
@@ -160,7 +158,7 @@
             contactForm.noValidate = true;
 
             let errorMessage = document.getElementById("errorMessage");
-
+            //error message for length of firstname
             let firstName = document.getElementById("firstName");
             firstName.addEventListener("blur",(event)=>
             {
@@ -175,7 +173,7 @@
                     errorMessage.hidden = true;
                 }
             });
-
+            //error message for length of lasname
             let lastName = document.getElementById("lastName");
             lastName.addEventListener("blur",(event)=>
             {
@@ -194,7 +192,7 @@
             //create a "hook" or "reference" to the button element with an id of "submitButton"
             let submitButton =document.getElementById("submitButton")        
             submitButton.addEventListener("click",(event) =>
-            {
+            {   //prevent it from submitting when you click
                 event.preventDefault();
                 console.log("Submit Button Clicked")
             })
@@ -202,7 +200,7 @@
         return false;
     }
     
-
+    //when page loaded it happens
     function Start()
     {
         console.log("App Started...");
@@ -212,21 +210,21 @@
         let success =addParagraphsToAboutmeJumbotron(); 
         if(success)
         {
-        console.log("successfully added paragraphs to jumbotron");
+        console.log("successfully added paragraphs to index.html jumbotron");
         }
         else
         {
-        console.log("content not added to jumbotron - does not exist"); 
+        console.log("content not added to index.html jumbotron - does not exist"); 
         }
 
         let success1 =addParagraphsToProjectsJumbotron(); 
         if(success1)
         {
-        console.log("successfully added paragraphs to jumbotron");
+        console.log("successfully added paragraphs to projects.html jumbotron");
         }
         else
         {
-        console.log("content not added to jumbotron - does not exist"); 
+        console.log("content not added to projects.html jumbotron - does not exist"); 
         }
 
         let formValidated =validateForm();
