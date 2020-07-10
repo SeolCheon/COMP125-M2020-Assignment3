@@ -28,7 +28,7 @@
         return title;  
     }
     //add texts in about me page
-    function addParagraphsToAboutmeJumbotron() {
+  /*  function addParagraphsToAboutmeJumbotron() {
         //step 1 hook into the spot {element} on the page
         let aboutjumbotron = document.getElementById("aboutMeJumbotron");
         
@@ -48,7 +48,31 @@
             return true;
         }return false;        
        
+    } */
+
+    function addParagraphsAfterimage() {        
+        let profilephoto = document.getElementsByName("profile")
+        if (profilephoto) //if jumbotron exists
+        {
+            let experiment = document.createElement("div");            
+            experiment.innerHTML =
+                `                
+                    I like to draw pictures about my culture!
+                    I'm from Korea and I think there's so many amazing architectures
+                    in my country. And I really want to promote those!
+                    But It is a bit hard to travel to Korea everytime you want to see works.
+                    So Finally, I want to build website for digital art gallery 
+                    where there are a lot of beautiful picutres of korean cultures that I draw.     
+                    FYI, a picture above is my work!           
+                    
+                `; 
+            //attach new div
+            profilephoto.appendChild(experiment);
+            return true;
+        }return false;
     }
+
+
     //add texts in projects page
     function addParagraphsToProjectsJumbotron() {        
         let projectsjumbotron = document.getElementById("projectJumbotron");
@@ -155,6 +179,9 @@
         {
             //turn validation off
             contactForm.noValidate = true;
+           
+
+ 
 
             let errorMessage = document.getElementById("errorMessage");
             //error message for length of firstname
@@ -188,11 +215,17 @@
                 }
             });
             //create a "hook" or "reference" to the button element with an id of "submitButton"
+
+            
             let submitButton =document.getElementById("submitButton")        
             submitButton.addEventListener("click",(event) =>
             {   //prevent it from submitting when you click
+               
+                var input = document.getElementById('lastName');
+                console.log(`your last name is: `,input.value);
+               
+                console.log("Submit Button Clicked");
                 event.preventDefault();
-                console.log("Submit Button Clicked")
             })
             return true;
         }        
@@ -206,7 +239,7 @@
 
         let title = highlightActiveLink();
         //check if sucessfully paragraphs added in about me page
-        let success =addParagraphsToAboutmeJumbotron(); 
+       /*  let success =addParagraphsToAboutmeJumbotron(); 
         if(success)
         {
         console.log("successfully added paragraphs to index.html jumbotron");
@@ -214,7 +247,7 @@
         else
         {
         console.log("content not added to index.html jumbotron - does not exist"); 
-        }
+        } */
 
         //check if sucessfully paragraphs added in projects page
         let success1 =addParagraphsToProjectsJumbotron(); 
@@ -236,6 +269,18 @@
         {
         console.log("form not validated -does not exist"); 
         }
+
+        let formValidated1 =addParagraphsAfterimage();
+        if(formValidated1)
+        {
+        console.log("successfully validated form");
+        }
+        else
+        {
+        console.log("form not validated -does not exist"); 
+        }
+       
+       
     }
 
     window.addEventListener("load", Start);
