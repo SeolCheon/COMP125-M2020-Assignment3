@@ -28,7 +28,7 @@
         return title;  
     }
     //add texts in about me page
-  /*  function addParagraphsToAboutmeJumbotron() {
+    function addParagraphsToAboutmeJumbotron() {
         //step 1 hook into the spot {element} on the page
         let aboutjumbotron = document.getElementById("aboutMeJumbotron");
         
@@ -48,7 +48,7 @@
             return true;
         }return false;        
        
-    } */
+    } 
 
     function addParagraphsAfterimage() {        
         let profilephoto = document.getElementsByName("profile")
@@ -239,7 +239,7 @@
 
         let title = highlightActiveLink();
         //check if sucessfully paragraphs added in about me page
-       /*  let success =addParagraphsToAboutmeJumbotron(); 
+         let success =addParagraphsToAboutmeJumbotron(); 
         if(success)
         {
         console.log("successfully added paragraphs to index.html jumbotron");
@@ -247,7 +247,7 @@
         else
         {
         console.log("content not added to index.html jumbotron - does not exist"); 
-        } */
+        } 
 
         //check if sucessfully paragraphs added in projects page
         let success1 =addParagraphsToProjectsJumbotron(); 
