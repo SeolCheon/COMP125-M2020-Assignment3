@@ -50,27 +50,7 @@
        
     } 
 
-    function addParagraphsAfterimage() {        
-        let profilephoto = document.getElementsByName("profile")
-        if (profilephoto) //if jumbotron exists
-        {
-            let experiment = document.createElement("div");            
-            experiment.innerHTML =
-                `                
-                    I like to draw pictures about my culture!
-                    I'm from Korea and I think there's so many amazing architectures
-                    in my country. And I really want to promote those!
-                    But It is a bit hard to travel to Korea everytime you want to see works.
-                    So Finally, I want to build website for digital art gallery 
-                    where there are a lot of beautiful picutres of korean cultures that I draw.     
-                    FYI, a picture above is my work!           
-                    
-                `; 
-            //attach new div
-            profilephoto.appendChild(experiment);
-            return true;
-        }return false;
-    }
+   
 
 
     //add texts in projects page
@@ -219,13 +199,13 @@
             
             let submitButton =document.getElementById("submitButton")        
             submitButton.addEventListener("click",(event) =>
-            {   //prevent it from submitting when you click
+            {   
                
                 var input = document.getElementById('lastName');
                 console.log(`your last name is: `,input.value);
                
                 console.log("Submit Button Clicked");
-                event.preventDefault();
+                event.preventDefault();//prevent it from submitting when you click
             })
             return true;
         }        
@@ -270,15 +250,8 @@
         console.log("form not validated -does not exist"); 
         }
 
-        let formValidated1 =addParagraphsAfterimage();
-        if(formValidated1)
-        {
-        console.log("successfully validated form");
-        }
-        else
-        {
-        console.log("form not validated -does not exist"); 
-        }
+      
+       
        
        
     }
