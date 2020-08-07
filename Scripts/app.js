@@ -120,6 +120,7 @@
 
                 header.innerHTML = headerData;                
             }
+            
         });
     }
 
@@ -147,16 +148,67 @@
             }
         });
     }
-    
+
+    function loadParagraphs()
+    {
+        console.info("Paragraphs loading...");
+
+        // creates the XHR object
+        let XHR = new XMLHttpRequest();
+
+        // configures the message
+        XHR.open("GET", "/Scripts/paragraphs.json");
+
+        // Executes the request
+        XHR.send();
+
+        // register the readystate event 
+        XHR.addEventListener("readystatechange", function(){
+            if((XHR.readyState === 4) && (XHR.status === 200))
+            {                
+
+                let dataFile = JSON.parse(XHR.responseText);
+                
+                 let Paragraphs = dataFile.paragraphs;
+                
+
+                let paragraphList = [];                
+                
+
+                for (const paragraph of Paragraphs) 
+                {
+                    let paras = new objects.Paragraph();
+                    paras.setParagraph(paragraph);
+                    paragraphList.push(paras);
+                    
+                }
+                 
+                
+                for(let i=0;i<paragraphList.length;i++)
+                {
+                    let image = document.getElementsByTagName("img")[i];
+                    let para = document.createElement('p');
+                    para.innerHTML =paragraphList[i];                    
+                    if(image!=null){image.appendChild(para);}
+                    console.log(paragraphList[i])
+
+                }
+            }return true;
+        });return false;
+    }
+               
     //when page loaded it happens
     function Start()
     {
         console.log("App Started...");
+        let title = highlightActiveLink();
+        
         loadHeader();
         loadFooter();
-        //loadParagraphs();
-
-        let title = highlightActiveLink();
+        loadParagraphs();
+        
+        
+        
         
          
         //check if sucessfully form validated
@@ -168,11 +220,7 @@
         else
         {
         console.log("form not validated -does not exist"); 
-        }
-
-      
-       
-       
+        }      
        
     }
 
