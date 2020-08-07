@@ -28,107 +28,10 @@
         return title;  
     }
 
-    //add texts in about me page
-    function addParagraphsToAboutmeJumbotron() {
-        //step 1 hook into the spot {element} on the page
-        let aboutjumbotron = document.getElementById("aboutMeJumbotron");
-        
-        if (aboutjumbotron) //if jumbotron exists
-        {       
-            let newDiv = document.createElement("div");
-            newDiv.innerText =//textContent, innerText,innerHTML
-                `                    
-                    My personal mission in life
-                    is to learn English, French, Spanish
-                    is to join Google and learn how to run a  company
-                    is to make AI that can be friend with human
-                    is to run my own AI business          
-                `;
-            aboutjumbotron.appendChild(newDiv);
-
-            return true;
-        }return false;        
-       
-    }    
-
-
-    //add texts in projects page
-    function addParagraphsToProjectsJumbotron() {        
-        let projectsjumbotron = document.getElementById("projectJumbotron");
-        
-        if (projectsjumbotron) //if jumbotron exists
-        {
-           
-            //create div element
-            let firstParagraph = document.createElement("div");            
-            firstParagraph.innerHTML =
-                `   
-                    Building a Korean Digital Art Gallery.
-
-                    I like to draw pictures about my culture!
-                    I'm from Korea and I think there's so many amazing architectures
-                    in my country. And I really want to promote those!
-                    But It is a bit hard to travel to Korea everytime you want to see works.
-                    So Finally, I want to build website for digital art gallery 
-                    where there are a lot of beautiful picutres of korean cultures that I draw.     
-                    FYI, a picture above is my work!     
-
-                    
-                `; 
-            //attach new div
-            projectsjumbotron.appendChild(firstParagraph);
-            //create hr element to put empty line
-            let line = document.createElement("hr");                    
-            projectsjumbotron.appendChild(line);
-
-
-            //create div element
-            let secondParagraph = document.createElement("div");
-            //configure the div element
-            secondParagraph.innerHTML =
-                `
-                Making a language learning App.
-
-                I like to learn langauge with language learning App.
-                I want to make the App with AI.
-                Not only can this AI translate what people says with their language,
-                Also this AI can recognize user's voice and analyze the accent and pronunciation
-                and It will give feedback to users so they can fix their langauge speaking. 
-                I'll charge of analyzing speaking patterns.
+    
 
     
-                `;         
-            //attatch the element   
-            projectsjumbotron.appendChild(secondParagraph);
-            //create hr element
-            let line2 = document.createElement("hr"); 
-            //attatch hr element                   
-            projectsjumbotron.appendChild(line2);
-            //create li element
-
-
-            //create new element div
-            let thirdParagraph = document.createElement("div");
-            //configure
-            thirdParagraph.innerHTML =
-                `
-                Making a YouTube channel!
-
-                I like to share my ideas and knowledge with people.
-                I think becoming a youtuber will help me improve my English
-                and learn skills for buiding websites using language!
-                The reason why I think like this is I believe that only after I teach people 
-                with my knowledge, that knowledge is real mine now.
-                So My last project that I haven't started yet eagerly is to become a Youtuber!                                    
     
-                `; 
-            //attatch element div               
-            projectsjumbotron.appendChild(thirdParagraph);
- 
-            return true;
-        }return false;        
-       
-    } 
 
 
     //validations in contact page
@@ -251,6 +154,7 @@
         console.log("App Started...");
         loadHeader();
         loadFooter();
+        //loadParagraphs();
 
         let title = highlightActiveLink();
         
