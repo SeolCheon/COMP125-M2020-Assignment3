@@ -165,34 +165,41 @@
 
                 let dataFile = JSON.parse(XHR.responseText);//json file data parsing
                 
-                 let Paragraphs = dataFile.paragraphs;  //assign those as Paragraphs
-                
+                let Paragraphs = dataFile.paragraphs;  //assign those as Paragraphs               
 
-                let paragraphList = [];   //make new array paragraphList             
-                
+                let paragraphList = [];   //make new array paragraphList                 
 
                 for (const paragraph of Paragraphs) 
                 {
-                    let paras = new objects.Paragraphs(); //make new object
-                    
+                    let paras = new objects.Paragraph(); //make new object                    
                     paras.setParagraph(paragraph); //implement setParagraph method from paragraph.js file
-                    paragraphList.push(paras); //push elements in array
-                    
+                    paragraphList.push(paras); //push elements in array                    
                 }
-                 
+                console.log(paragraphList);
+               
                 
-                for(let i=0;i<paragraphList.length;i++)
-                {
-                    let image = document.getElementsByTagName("img")[i]; //get every elements whose tag name is img and assign it as an image
-                    let para = document.createElement('p'); //create element p
-                    para.innerHTML =paragraphList[i];   //configure p with array element                 
-                    if(image!=null)
-                    {
-                        image.appendChild(para); // append those paragraphs after img
-                    } 
-                    console.log(paragraphList[i])   //to check what are paragraphList[i](0<=i<list length)
+                let aboutJumbo = document.getElementsByClassName("aboutjumbotron"); //get every elements whose tag name is img and assign it as an image                    
+                let para1 = document.createElement('p'); //create element p                          
+                para1.innerHTML =paragraphList[0];   //configure p with array element 
 
-                }
+                let projectJumbo = document.getElementsByClassName("projectjumbotron");
+                let para2 = document.createElement('p');  
+                para2.innerHTML =paragraphList[1]+paragraphList[2]+paragraphList[3];
+                                    
+                console.log(aboutJumbo[0])
+
+                if(aboutJumbo[0]!=null)                   
+                {
+                    aboutJumbo[0].appendChild(para1);                        
+                } 
+                else{projectJumbo[0].appendChild(para2);}
+                
+                if(projectJumbo[0]!=null)                   
+                {
+                    projectJumbo[0].appendChild(para2);                        
+                } 
+                else{
+                aboutJumbo[0].appendChild(para1);}                  
             }return true;
         });return false;
     }
@@ -208,6 +215,7 @@
         loadFooter();
         loadParagraphs();
         //implement functions
+        
         
         
         

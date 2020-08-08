@@ -25,7 +25,7 @@
         {
             let outputstring ="";
             outputstring += this.para;
-            return outputstirng;
+            return outputstring;
         }
        
         //setParagraph method
