@@ -2,6 +2,7 @@
 //IIFE - Immediately Invoked Function Expressions.
 /*File name : app.js
   Author's name : Seol Cheon
+  Student number : 301113120
   Web site name : SC Inc.
   file description: a text file containin JavaScript code that is used to execute */
 (function(){
@@ -30,10 +31,6 @@
 
     
 
-    
-    
-
-
     //validations in contact page
     function validateForm()
     {        
@@ -41,13 +38,12 @@
         if(contactForm)
         {
             //turn validation off
-            contactForm.noValidate = true;
-           
+            contactForm.noValidate = true; 
 
- 
-
-            let errorMessage = document.getElementById("errorMessage");
             //error message for length of firstname
+            let errorMessage = document.getElementById("errorMessage");
+            
+            //validate first name
             let firstName = document.getElementById("firstName");
             firstName.addEventListener("blur",(event)=>
             {
@@ -64,6 +60,7 @@
             });
             //error message for length of lasname
             let lastName = document.getElementById("lastName");
+            //validaete last name
             lastName.addEventListener("blur",(event)=>
             {
                 if(lastName.value.length <2)
@@ -77,16 +74,13 @@
                     errorMessage.hidden = true;
                 }
             });
-            //create a "hook" or "reference" to the button element with an id of "submitButton"
-
             
+
+            //the things that are gonna happen when submit button clicked
             let submitButton =document.getElementById("submitButton")        
             submitButton.addEventListener("click",(event) =>
             {   
-               
-                var input = document.getElementById('lastName');
-                console.log(`your last name is: `,input.value);
-               
+                  
                 console.log("Submit Button Clicked");
                 event.preventDefault();//prevent it from submitting when you click
             })
@@ -97,7 +91,7 @@
 
 
     
-
+    
     function loadHeader()
     {
         console.info("Header Loading...");
@@ -124,19 +118,21 @@
         });
     }
 
+
+    //function for loading footer
     function loadFooter()
     {
         console.info("Footer Loading...");
 
-        // step 1 - creates the XHR object
+        //creates the XHR object
         let XHR = new XMLHttpRequest();
 
-        // step 2 - configures the message
+        //configures the message
         XHR.open("GET", "./Views/partials/footer.html");
 
-        // step 3 - Executes the request
+        //Executes the request
         XHR.send();
-
+        //register the readystate event 
         XHR.addEventListener("readystatechange", function(){
             if((XHR.readyState === 4) && (XHR.status === 200))
             {
@@ -144,11 +140,11 @@
 
                 let footerData = XHR.responseText;
 
-                footer.innerHTML = footerData;
+                footer.innerHTML = footerData;  //put contents in footer.html to every footer tags
             }
         });
     }
-
+    //function for loading paragraphs from json using ajax
     function loadParagraphs()
     {
         console.info("Paragraphs loading...");
@@ -167,30 +163,34 @@
             if((XHR.readyState === 4) && (XHR.status === 200))
             {                
 
-                let dataFile = JSON.parse(XHR.responseText);
+                let dataFile = JSON.parse(XHR.responseText);//json file data parsing
                 
-                 let Paragraphs = dataFile.paragraphs;
+                 let Paragraphs = dataFile.paragraphs;  //assign those as Paragraphs
                 
 
-                let paragraphList = [];                
+                let paragraphList = [];   //make new array paragraphList             
                 
 
                 for (const paragraph of Paragraphs) 
                 {
-                    let paras = new objects.Paragraph();
-                    paras.setParagraph(paragraph);
-                    paragraphList.push(paras);
+                    let paras = new objects.Paragraphs(); //make new object
+                    
+                    paras.setParagraph(paragraph); //implement setParagraph method from paragraph.js file
+                    paragraphList.push(paras); //push elements in array
                     
                 }
                  
                 
                 for(let i=0;i<paragraphList.length;i++)
                 {
-                    let image = document.getElementsByTagName("img")[i];
-                    let para = document.createElement('p');
-                    para.innerHTML =paragraphList[i];                    
-                    if(image!=null){image.appendChild(para);}
-                    console.log(paragraphList[i])
+                    let image = document.getElementsByTagName("img")[i]; //get every elements whose tag name is img and assign it as an image
+                    let para = document.createElement('p'); //create element p
+                    para.innerHTML =paragraphList[i];   //configure p with array element                 
+                    if(image!=null)
+                    {
+                        image.appendChild(para); // append those paragraphs after img
+                    } 
+                    console.log(paragraphList[i])   //to check what are paragraphList[i](0<=i<list length)
 
                 }
             }return true;
@@ -201,11 +201,13 @@
     function Start()
     {
         console.log("App Started...");
+
         let title = highlightActiveLink();
         
-        loadHeader();
+        loadHeader(); 
         loadFooter();
         loadParagraphs();
+        //implement functions
         
         
         
