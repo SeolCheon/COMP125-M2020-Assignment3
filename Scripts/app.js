@@ -214,11 +214,7 @@
         loadHeader(); 
         loadFooter();
         loadParagraphs();
-        //implement functions
-        
-        
-        
-        
+        //implement functions   
         
          
         //check if sucessfully form validated
