@@ -9,28 +9,26 @@
     //highlight the active page nav list 
     function highlightActiveLink() 
     {
-        let title = document.title;                             //assign document title to title
+        let title = document.title;                             //assign document title to title             
         
-        console.log(`The title of the page is ${title}`);       //show which page you are on
+        title = title.toLowerCase();                           //change the title name to all lowercase     
+        console.log(`The title of the page is ${title}`);       //show which page you are on    
         
-        title = title.toLowerCase(); 
-                                  //change the title name to all lowercase
-    
         let navAnchors = document.querySelectorAll("li a");
         
-    
         for (const anchor of navAnchors)
         {        
-            let anchorString = anchor.getAttribute("href");
-            
+            let anchorString = anchor.getAttribute("href");    
             anchorString = anchorString.substr(0, anchorString.length - 5);     //get title name without '.html'
-            console.log(anchorString);
-            if ((title === "about") && (anchorString === "index") || (title === anchorString)) {
+            
+            if ((title === "about") && (anchorString === "index") || (title === anchorString))
+            {
+                   
                     anchor.className = "nav-link active";                       //if you are on the particular page , active nav bar
             }
             
-        }     
-        return title;  
+        } 
+          
     }
 
     
@@ -116,10 +114,14 @@
 
                 let headerData = XHR.responseText;                          //get text from header.thml and assign it to headerData
 
-                header.innerHTML = headerData;                              //put headerData to every header tags          
+                header.innerHTML = headerData;  //put headerData to every header tags  
+                highlightActiveLink();
+                
             }
             
         });
+        
+        
     }
 
 
@@ -144,9 +146,11 @@
 
                 let footerData = XHR.responseText;                          //get texts from footer.html and assign it to footerData
 
-                footer.innerHTML = footerData;                              //put contents in footer.html to every footer tags
+                footer.innerHTML = footerData;  
+                                          //put contents in footer.html to every footer tags
             }
         });
+        
     }
     //function for loading paragraphs from json using ajax
     function loadParagraphs()
@@ -194,11 +198,13 @@
 
                 if(aboutJumbo[0]!=null)                     //if you can see jumbotron in about.html on page(if you are at about.html page)            
                 {
-                    aboutJumbo[0].appendChild(para1);       //append para1 to aboutJumbo                      
+                    aboutJumbo[0].appendChild(para1);       //append para1 to aboutJumbo 
+                    
                 } 
                 else                                        //if not
                 {
                     projectJumbo[0].appendChild(para2);     //append para2 to projectJumbo
+                    
                 }   
 
                 
@@ -208,18 +214,23 @@
                 } 
                 else                                        //if not
                 {
-                aboutJumbo[0].appendChild(para1);           //append dpara1 to aboutJumbo
-                }                  
+                aboutJumbo[0].appendChild(para1);           //append dpara1 to aboutJumbo                
+                }    
+                            
             }return true;
         });return false;
     }
+
+
                
     //when page loaded it happens
     function Start()
     {
         console.log("App Started...");
 
-        let title = highlightActiveLink();
+        
+        
+       
         
 
         //implement functions
