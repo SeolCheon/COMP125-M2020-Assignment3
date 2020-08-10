@@ -20,7 +20,7 @@
             this.para = para;
             
         }
-        //toString method
+        //toString method -changing from object to string
         toString()
         {
             let outputstring ="";
