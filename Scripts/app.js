@@ -31,7 +31,6 @@
           
     }
 
-    
 
     //validations in contact page
     function validateForm()
@@ -90,7 +89,6 @@
         }        
         return false;
     }
-
 
     
     //function for showing header 
@@ -152,6 +150,7 @@
         });
         
     }
+    
     //function for loading paragraphs from json using ajax
     function loadParagraphs()
     {
