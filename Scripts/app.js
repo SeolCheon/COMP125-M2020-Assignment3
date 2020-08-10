@@ -184,7 +184,6 @@
                     paragraphList.push(paras);                  //push elements in array                    
                 }
                 
-               
                 
                 let aboutJumbo = document.getElementsByClassName("aboutjumbotron"); //get every elements whose tag name is aboutjumbotron and assign it  to an aboutJumbo                  
                 let para1 = document.createElement('p'); //create element p(paragraph) and assign it to para1                        
@@ -193,13 +192,11 @@
                 let projectJumbo = document.getElementsByClassName("projectjumbotron"); //get every elements whose tag name is projectjumbotron and assign it  to an projectJumbo
                 let para2 = document.createElement('p');    //create element p(paragraph) and assign it to para2
                 para2.innerHTML =paragraphList[1]+paragraphList[2]+paragraphList[3];    //configure p ( second, third,fourth paragraph in paragraph.json)
-                                    
-                
+              
 
                 if(aboutJumbo[0]!=null)                     //if you can see jumbotron in about.html on page(if you are at about.html page)            
                 {
                     aboutJumbo[0].appendChild(para1);       //append para1 to aboutJumbo 
-                    
                 } 
                 else                                        //if not
                 {
@@ -214,13 +211,12 @@
                 } 
                 else                                        //if not
                 {
-                aboutJumbo[0].appendChild(para1);           //append dpara1 to aboutJumbo                
+                    aboutJumbo[0].appendChild(para1);       //append dpara1 to aboutJumbo               
                 }    
                             
             }return true;
         });return false;
     }
-
 
                
     //when page loaded it happens
@@ -228,18 +224,11 @@
     {
         console.log("App Started...");
 
-        
-        
-       
-        
-
         //implement functions
         loadHeader(); 
         loadFooter();
-        loadParagraphs();
-           
+        loadParagraphs();           
         
-         
         //check if sucessfully form validated
         let formValidated =validateForm();
         if(formValidated)
@@ -249,7 +238,7 @@
         else
         {
         console.log("form not validated -does not exist"); 
-        }      
+        }     
        
     }
 
