@@ -121,8 +121,7 @@
         
         
     }
-
-
+    
     //function for loading footer
     function loadFooter()
     {
@@ -150,7 +149,7 @@
         });
         
     }
-    
+
     //function for loading paragraphs from json using ajax
     function loadParagraphs()
     {
